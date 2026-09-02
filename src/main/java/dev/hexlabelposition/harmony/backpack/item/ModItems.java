@@ -14,7 +14,7 @@ public final class ModItems {
 	private ModItems() {
 	}
 
-	public static final Item BACKPACK = RegistryHelper.registerItem("backpack", Item::new,
+	public static final Item BACKPACK = RegistryHelper.registerItem("backpack", BackpackItem::new,
 			new Item.Properties().stacksTo(1));
 
 	public static void initialize() {
