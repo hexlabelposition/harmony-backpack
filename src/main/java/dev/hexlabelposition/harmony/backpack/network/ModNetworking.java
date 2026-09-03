@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.ItemStack;
 
 public final class ModNetworking {
 	private ModNetworking() {
@@ -19,9 +18,9 @@ public final class ModNetworking {
 			ServerPlayer player = context.player();
 			// Hop onto the server thread before touching the player's inventory / opening a menu.
 			context.server().execute(() -> {
-				ItemStack backpack = BackpackItem.findBackpack(player);
-				if (!backpack.isEmpty()) {
-					BackpackItem.open(player, backpack);
+				BackpackItem.FoundBackpack found = BackpackItem.findBackpack(player);
+				if (!found.isEmpty()) {
+					BackpackItem.open(player, found.stack(), found.inventorySlot());
 				}
 			});
 		});

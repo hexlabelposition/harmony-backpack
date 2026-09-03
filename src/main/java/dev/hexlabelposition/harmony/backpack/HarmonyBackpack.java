@@ -1,6 +1,7 @@
 package dev.hexlabelposition.harmony.backpack;
 
 import dev.hexlabelposition.harmony.backpack.item.ModItems;
+import dev.hexlabelposition.harmony.backpack.menu.ModMenus;
 import dev.hexlabelposition.harmony.backpack.network.ModNetworking;
 
 import net.fabricmc.api.ModInitializer;
@@ -17,6 +18,7 @@ public class HarmonyBackpack implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.initialize();
+		ModMenus.initialize();
 		ModNetworking.register();
 		LOGGER.info("Initializing Harmony Backpack mod");
 	}

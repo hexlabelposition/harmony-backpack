@@ -1,6 +1,6 @@
 package dev.hexlabelposition.harmony.backpack.inventory;
 
-import dev.hexlabelposition.harmony.backpack.item.ModItems;
+import dev.hexlabelposition.harmony.backpack.item.BackpackItem;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.SimpleContainer;
@@ -26,10 +26,20 @@ public class BackpackInventory extends SimpleContainer {
 		backpackStack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).copyInto(getItems());
 	}
 
+	/**
+	 * Whether a backpack will store {@code stack}. No backpack (open or not) may go inside a backpack.
+	 *
+	 * <p>Static because the client's copy of the menu is backed by a plain container rather than a
+	 * {@code BackpackInventory}, yet its slots must answer exactly as the server's do — otherwise the
+	 * client predicts a placement the server refuses and the item visibly flickers into the slot.
+	 */
+	public static boolean mayStore(ItemStack stack) {
+		return !(stack.getItem() instanceof BackpackItem);
+	}
+
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
-		// Don't allow a backpack to be stored inside a backpack.
-		return !stack.is(ModItems.BACKPACK);
+		return mayStore(stack);
 	}
 
 	@Override

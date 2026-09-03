@@ -3,6 +3,7 @@ package dev.hexlabelposition.harmony.backpack.client;
 import com.mojang.blaze3d.platform.InputConstants;
 import org.lwjgl.glfw.GLFW;
 
+import dev.hexlabelposition.harmony.backpack.menu.ModMenus;
 import dev.hexlabelposition.harmony.backpack.network.OpenBackpackPayload;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -11,12 +12,15 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import net.minecraft.client.KeyMapping;
+import net.minecraft.client.gui.screens.MenuScreens;
 
 public class HarmonyBackpackClient implements ClientModInitializer {
 	private static KeyMapping openBackpackKey;
 
 	@Override
 	public void onInitializeClient() {
+		MenuScreens.register(ModMenus.BACKPACK, BackpackScreen::new);
+
 		openBackpackKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
 				"key.harmony-backpack.open_backpack",
 				InputConstants.Type.KEYSYM,
