@@ -3,15 +3,15 @@
 	"id": "harmony-backpack",
 	"version": "${version}",
 	"name": "Harmony Backpack",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A lightweight backpack with 27 portable storage slots.",
 	"authors": [
-		"Me!"
+		"Vladyslav Kudriashov"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/hexlabelposition/harmony-backpack",
+		"sources": "https://github.com/hexlabelposition/harmony-backpack"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/harmony-backpack/icon.png",
 	"environment": "*",
 	"entrypoints": {
