@@ -7,9 +7,7 @@ Harmony Backpack is a lightweight backpack mod for Minecraft built with the
 
 - One portable backpack with 27 storage slots (3 rows of 9).
 - Backpack contents are stored directly in the item and persist when it is moved.
-- Open a backpack by using it or by pressing `B` (configurable in Minecraft's key bindings).
-- The keyboard shortcut opens the selected backpack first, then the first backpack in the player
-  inventory, and finally the off-hand backpack.
+- Open a backpack by using it in hand.
 - The open backpack is locked in place until its screen is closed.
 - Backpacks cannot be stored inside other backpacks.
 - English and Russian translations.
